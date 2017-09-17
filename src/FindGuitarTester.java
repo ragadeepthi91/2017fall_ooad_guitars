@@ -1,5 +1,24 @@
+/**
+* @author  RagaDeepthi
+* 
+* <h1>Find the Guitar that matches your requirements</h1>
+* This program implements an application that
+* reads the guitar details provided by the user and 
+* returns if the similar guitar is available in the inventory or not.
+* 
+* <p>
+* <b>Note:</b> Appropriate comments are provided wherever required
+* 
+*/
+
 public class FindGuitarTester {
 
+	/**
+	 * This is main method which makes use of other methods in the project
+	 * 
+	 * @param args Unused
+	 * @return Nothing
+	 */
   public static void main(String[] args) {
     // Set up Rick's guitar inventory
     Inventory inventory = new Inventory();
@@ -7,7 +26,9 @@ public class FindGuitarTester {
 
     Guitar whatErinLikes = new Guitar("", 0, "fender", "Stratocastor", 
                                       "electric", "Alder", "Alder");
-    Guitar guitar = inventory.search(whatErinLikes);
+    
+ // Searching list of guitars for the guitar suitable for Erin
+    Guitar guitar = inventory.search(whatErinLikes); 
     if (guitar != null) {
       System.out.println("Erin, you might like this " +
         guitar.getBuilder() + " " + guitar.getModel() +  " " +
@@ -19,6 +40,11 @@ public class FindGuitarTester {
       System.out.println("Sorry, Erin, we have nothing for you.");
     }
   }
+  
+  /**
+   * This is used to add all the available guitars to inventory
+   * @param inventory
+   */
 
   private static void initializeInventory(Inventory inventory) {
     inventory.addGuitar("11277", 3999.95, "Collings", "CJ", "acoustic",

@@ -3,11 +3,25 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Inventory {
-  private List guitars;
-
+  private List<Guitar> guitars;
+/**
+ * This is constructor 
+ * New linked list is created to hold details of all the guitars
+ */
   public Inventory() {
     guitars = new LinkedList();
   }
+  
+  /**
+   * This method is used to add the guitar to the guitars list
+   * @param serialNumber
+   * @param price
+   * @param builder
+   * @param model
+   * @param type
+   * @param backWood
+   * @param topWood
+   */
 
   public void addGuitar(String serialNumber, double price,
                         String builder, String model,
@@ -16,6 +30,14 @@ public class Inventory {
                                model, type, backWood, topWood);
     guitars.add(guitar);
   }
+  
+  /**
+   * This method is used to traverse through the guitars list
+   * and get the details of the guitar with given serial number.
+   * @param serialNumber This is the single parameter to getGuitar method
+   * @return Guitar This returns the guitar that matches with the 
+   * serial number passed into this method
+   */
   public Guitar getGuitar(String serialNumber) {
     for (Iterator i = guitars.iterator(); i.hasNext(); ) {
       Guitar guitar = (Guitar)i.next();
@@ -25,6 +47,17 @@ public class Inventory {
     }
     return null;
   }
+  
+  /**
+   * 
+   * This method is used to traverse through the guitars list and get the details of 
+   * the guitar which is most suitable to the specified requirements.
+   * It returns null if the guitar with specified requirements is not found.
+   * 
+   * @param searchGuitar This is the single argument passed into this method
+   * @return Guitar This returns the guitar that matches with required details
+   */
+  
   public Guitar search(Guitar searchGuitar) {
     for (Iterator i = guitars.iterator(); i.hasNext(); ) {
       Guitar guitar = (Guitar)i.next();
