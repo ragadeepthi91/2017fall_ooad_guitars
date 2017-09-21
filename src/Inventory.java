@@ -1,21 +1,31 @@
+/**
+*
+* Class: Object-Oriented Design and Analysis
+* Professor: Orlando Montalvo
+* Assignment: HW 1
+* Student: Ragadeepthi
+* 
+* Implements methods to add and search guitars matching with given specifications
+* 
+*/
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Inventory {
   private List<Guitar> guitars;
-/**
- * This is constructor 
- * New linked list is created to hold details of all the guitars
- */
+  
+//constructor to intitialise guitars
   public Inventory() {
     guitars = new LinkedList();
   }
   
   /**
-   * This method is used to add the guitar to the guitars list
-   * @param serialNumber
-   * @param price
+   * Adds a new guitar to the inventory
+   * 
+   * @param serialNumber 
+   * @param price 
    * @param builder
    * @param model
    * @param type
@@ -32,11 +42,10 @@ public class Inventory {
   }
   
   /**
-   * This method is used to traverse through the guitars list
-   * and get the details of the guitar with given serial number.
+   * Searches inventory and returns guitar matching with given serial number.
+   * 
    * @param serialNumber This is the single parameter to getGuitar method
-   * @return Guitar This returns the guitar that matches with the 
-   * serial number passed into this method
+   * @return Guitar guitar that matches serial number, null if not found.
    */
   public Guitar getGuitar(String serialNumber) {
     for (Iterator i = guitars.iterator(); i.hasNext(); ) {
@@ -50,12 +59,10 @@ public class Inventory {
   
   /**
    * 
-   * This method is used to traverse through the guitars list and get the details of 
-   * the guitar which is most suitable to the specified requirements.
-   * It returns null if the guitar with specified requirements is not found.
+   * Finds and returns the guitar that matches given guitar(searchGuitar)
    * 
-   * @param searchGuitar This is the single argument passed into this method
-   * @return Guitar This returns the guitar that matches with required details
+   * @param searchGuitar guitar with given specifications
+   * @return Guitar guitar that matches given guitar, null if not found.
    */
   
   public Guitar search(Guitar searchGuitar) {

@@ -1,3 +1,14 @@
+/**
+*
+* Class: Object-Oriented Design and Analysis
+* Professor: Orlando Montalvo
+* Assignment: HW 1
+* Student: Ragadeepthi
+* 
+* Holds all the guitar characteristics
+* 
+*/
+
 public class Guitar {
 
   private String serialNumber, builder, model, type, backWood, topWood;
@@ -28,7 +39,7 @@ public class Guitar {
   
   /**
    * 
-   * @return String 
+   * @return String Guitar's serialNumber
    */
   public String getSerialNumber() {
     return serialNumber;
@@ -36,7 +47,7 @@ public class Guitar {
   
   /**
    * 
-   * @return double
+   * @return double Guitar's price
    */
   public double getPrice() {
     return price;
@@ -44,7 +55,7 @@ public class Guitar {
   
   /**
    * 
-   * @param newPrice
+   * @param newPrice Guitar's price
    */
   public void setPrice(float newPrice) {
     this.price = newPrice;
@@ -52,7 +63,7 @@ public class Guitar {
   
   /**
    * 
-   * @return String
+   * @return String Guitar's builder
    */
   public String getBuilder() {
     return builder;
@@ -60,7 +71,7 @@ public class Guitar {
   
   /**
    * 
-   * @return String
+   * @return String Guitar's model
    */
   public String getModel() {
     return model;
@@ -68,7 +79,7 @@ public class Guitar {
   
   /**
    * 
-   * @return String
+   * @return String Guitar's type
    */
   public String getType() {
     return type;
@@ -76,7 +87,7 @@ public class Guitar {
   
   /**
    * 
-   * @return String
+   * @return String Guitar's backwood
    */
   public String getBackWood() {
     return backWood;
@@ -84,7 +95,7 @@ public class Guitar {
   
   /**
    * 
-   * @return String
+   * @return String Guitar's topwood
    */
   public String getTopWood() {
     return topWood;

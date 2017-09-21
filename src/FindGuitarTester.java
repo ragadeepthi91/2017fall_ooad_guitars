@@ -1,20 +1,20 @@
 /**
-* @author  RagaDeepthi
+*
+* Class: Object-Oriented Design and Analysis
+* Professor: Orlando Montalvo
+* Assignment: HW 1
+* Student: Ragadeepthi
 * 
-* <h1>Find the Guitar that matches your requirements</h1>
-* This program implements an application that
-* reads the guitar details provided by the user and 
-* returns if the similar guitar is available in the inventory or not.
-* 
-* <p>
-* <b>Note:</b> Appropriate comments are provided wherever required
+* Main class to call Guitar and Inventory classes to take required Guitar 
+* specifications and print details of matching guitar
 * 
 */
+
 
 public class FindGuitarTester {
 
 	/**
-	 * This is main method which makes use of other methods in the project
+	 * This is main method which calls other methods in the project
 	 * 
 	 * @param args Unused
 	 * @return Nothing
@@ -42,8 +42,9 @@ public class FindGuitarTester {
   }
   
   /**
-   * This is used to add all the available guitars to inventory
-   * @param inventory
+   * Adds all the guitars to the inventory
+   * 
+   * @param inventory stores all the guitars
    */
 
   private static void initializeInventory(Inventory inventory) {
