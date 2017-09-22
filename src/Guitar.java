@@ -5,8 +5,7 @@ public class Guitar {
   public GuitarSpec spec;
   
   public Guitar()
-  {
-	  
+  {  
   }
 
   public Guitar(String serialNumber, double price, Builder builder, String model, 
@@ -36,7 +35,7 @@ public class Guitar {
   public double getPrice() {
     return price;
   }
-  public void setPrice(float newPrice) {
+  public void setPrice(double newPrice) {
     this.price = newPrice;
   }
  public GuitarSpec getSpec()

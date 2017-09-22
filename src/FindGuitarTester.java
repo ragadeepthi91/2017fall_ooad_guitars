@@ -2,28 +2,40 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
-public class FindGuitarTester {
+public class FindGuitarTester 
+{
+private static Inventory inventory = new Inventory();
 
-  public static void main(String[] args) {
+  public static void main(String[] args) 
+  {
     // Set up Rick's guitar inventory
-    Inventory inventory = new Inventory();
     initializeInventory(inventory);
+    SearchWithSpec();        // Search with required specifications.
+    //Searchwithprice();     // Search with price, uncomment when needed.
+  }
     
     //GuitarSpec whatErinLikes = new GuitarSpec(Builder.FENDER, "Stratocastor", 
                         //  Type.ELECTRIC, Woodtype.ALDER, Woodtype.ALDER);
-    
-    //Type and topwood are not included in search.
-    //Similarly, we can comment any attributes that we do not need.
+    /*
+     * Finds and prints guitars with given specifications
+     */
+    private static void SearchWithSpec()
+    {
     GuitarSpec whatErinLikes = new GuitarSpec();
-    whatErinLikes.setBuilder(Builder.FENDER);
-    whatErinLikes.setModel("");
-    //whatErinLikes.setType(Type.ELECTRIC);
-    whatErinLikes.setBackWood(Woodtype.ALDER);
+  
+    //Set the attributes required for search
+    //uncomment the attributes needed and set values
+    
+     whatErinLikes.setBuilder(Builder.FENDER);
+   // whatErinLikes.setModel("Stratocastor");
+   // whatErinLikes.setType(Type.ELECTRIC);
+    //whatErinLikes.setBackWood(Woodtype.ALDER);
     //whatErinLikes.setTopWood(Woodtype.ALDER);
     
-    List MatchedGuitars = new LinkedList();
+    List<Guitar> MatchedGuitars = new LinkedList<>();
     MatchedGuitars= inventory.search(whatErinLikes);
-    if (!MatchedGuitars.isEmpty()) {
+    if (!MatchedGuitars.isEmpty()) 
+    {
       System.out.println("Erin, you might like these guitars:");
       for (Iterator i = MatchedGuitars.iterator();i.hasNext();)
       {
@@ -36,17 +48,54 @@ public class FindGuitarTester {
         spec.getTopWood() + " top.\nYou can have it for only $" +
         guitar.getPrice() + "!");
       }
-    } else {
+    } 
+    else 
+    {
+      System.out.println("Sorry, Erin, we have nothing for you.");
+    }
+    }
+    
+    /*
+     * Finds and returns guitars that matches given price
+     */
+    
+  private static void Searchwithprice()
+  {
+  Guitar priceSpecification = new Guitar(); //Guitar object
+  priceSpecification.setPrice(3999.95);     //set price 
+  List<Guitar> PriceMatchGuitars = new LinkedList<>();
+  PriceMatchGuitars=inventory.Searchwithprice(priceSpecification);
+  if (!PriceMatchGuitars.isEmpty()) 
+  {
+      System.out.println("Erin, you might like these guitars in required price range:");
+      for (Iterator i = PriceMatchGuitars.iterator();i.hasNext();)
+      {
+    	  Guitar guitar= (Guitar)i.next();
+    	  GuitarSpec spec = guitar.getSpec();
+    	  System.out.println("We have a " +
+        spec.getBuilder() + " " + spec.getModel() +  " " +
+        spec.getType() + " guitar:\n   " +
+        spec.getBackWood() + " back and sides,\n   " +
+        spec.getTopWood() + " top.\nYou can have it for only $" +
+        guitar.getPrice() + "!");
+      }
+    } 
+  else 
+  {
       System.out.println("Sorry, Erin, we have nothing for you.");
     }
   }
   
-  GuitarSpec SpecWithOnlyPrice = new GuitarSpec();
-  SearchByPrice(SpecWithOnlyPrice);
+  /*
+   * Initialize Inventory with list of guitars
+   */
 
-  private static void initializeInventory(Inventory inventory) {
+  private static void initializeInventory(Inventory inventory) 
+  {
     inventory.addGuitar("11277", 3999.95, Builder.COLLINGS, "CJ", Type.ACOUSTIC,
                         Woodtype.INDIAN_ROSEWOOD, Woodtype.SITKA);
+    inventory.addGuitar("11278", 3999.95, Builder.MARTIN, "CJ", Type.ELECTRIC,
+            Woodtype.INDIAN_ROSEWOOD, Woodtype.ALDER);
     inventory.addGuitar("V95693", 1499.95, Builder.FENDER, "Stratocastor", Type.ELECTRIC,
                         Woodtype.ALDER, Woodtype.ALDER);
     inventory.addGuitar("V9512", 1549.95, Builder.FENDER, "Stratocastor", Type.ELECTRIC,

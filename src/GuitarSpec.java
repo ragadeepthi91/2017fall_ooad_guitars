@@ -17,39 +17,33 @@ public GuitarSpec(Builder builder, String model, Type type,
 }
 
  public GuitarSpec() 
- {
+{
 }
-
- //match will be called in search method of inventory class to match these specs.
+ 
  /*
-  * for(eachguitar in the inventory)
-  * {
-  * String model = searchguitar.getmodel();
-  * String eachmodel = eachguitarfromforloop.getmodel();
-  * similarly compare all other attributes
-  * }
-  * 
-  * In search function
-  * List<Guitar> glist = new ArrayList<Guitar>();
-  * if(eacgguitar.match(searchguitar))
-  * {
-  *  glist.append(eachguitar);
-  * }
+  * Returns the result of match
   */
  
- public Boolean Match(GuitarSpec searchGuitar, GuitarSpec guitarspec)
+ public Boolean Match(GuitarSpec guitarspec)
  {
-	 String model = searchGuitar.getModel().toLowerCase();
-	 if ((searchGuitar.getBuilder() == null ) || (searchGuitar.getBuilder() == guitarspec.getBuilder()))
-	  {if ((model == null) || (model.equals("")) ||
-	          (model.equals(guitarspec.getModel().toLowerCase())))
-	   {if ((searchGuitar.getType() == null ) || (searchGuitar.getType() == guitarspec.getType()))
-	    {if ((searchGuitar.getBackWood() == null ) || (searchGuitar.getBackWood() == guitarspec.getBackWood()))
-	     {if ((searchGuitar.getTopWood() == null ) || (searchGuitar.getTopWood() == guitarspec.getTopWood()))
+	 String model1=""; 
+	 //'this' refers to SearchGuitar and guitarspec refers to each guitar in inventory
+	 if(this.getModel() != null && !this.getModel().equals(""))
+	 {
+		model1 = this.getModel().toLowerCase();    //model value is converted to string if it is not null or empty.
+	 }
+	 //compare all the specifications
+	 if ((this.getBuilder() == null ) || (this.getBuilder() == guitarspec.getBuilder())) 
+	  {if ((this.getModel() == null) || (this.getModel().equals("")) ||
+	          (model1.equals(guitarspec.getModel().toLowerCase())))
+	   {if ((this.getType() == null ) || (this.getType() == guitarspec.getType()))
+	    {if ((this.getBackWood() == null ) || (this.getBackWood() == guitarspec.getBackWood()))
+	     {if ((this.getTopWood() == null ) || (this.getTopWood() == guitarspec.getTopWood()))
 	      return true;
 	     }}}}
 	 return false;
  }
+ 
   public Builder getBuilder() 
   {
     return builder;
