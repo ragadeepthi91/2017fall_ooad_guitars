@@ -1,4 +1,10 @@
-
+/**
+Class		: Object-Oriented Design and Analysis
+Professor	: Orlando Montalvo
+Assignment	: HW 2
+Student 	: RagaDeepthi, Manaswitha & Radhika
+Purpose 	: Custom user defined data type - Builder
+*/
 public enum Builder
 {
 	FENDER, MARTIN, GIBSON, COLLINGS, OLSON, RYAN, PRS;

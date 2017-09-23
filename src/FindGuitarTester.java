@@ -1,39 +1,52 @@
+/**
+Class		: Object-Oriented Design and Analysis
+Professor	: Orlando Montalvo
+Assignment	: HW 2
+Student 	: RagaDeepthi, Manaswitha & Radhika
+Purpose 	: Takes in the details of guitar like price,Model,Type and check the guitar availability in the Inventory.
+*/
+
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+
 
 public class FindGuitarTester 
 {
 private static Inventory inventory = new Inventory();
 
+/**
+ * Main method to call other classes and access methods to add, get and search guitars that matches given specifications.
+ * @param args Unused
+ */
+
   public static void main(String[] args) 
   {
     // Set up Rick's guitar inventory
     initializeInventory(inventory);
+    
     SearchWithSpec();        // Search with required specifications.
-    //Searchwithprice();     // Search with price, uncomment when needed.
+    Searchwithprice();       // Search with price.
   }
     
-    //GuitarSpec whatErinLikes = new GuitarSpec(Builder.FENDER, "Stratocastor", 
-                        //  Type.ELECTRIC, Woodtype.ALDER, Woodtype.ALDER);
-    /*
-     * Finds and prints guitars with given specifications
+    
+    /**
+     * Finds and prints guitar matching with given specifications
      */
     private static void SearchWithSpec()
     {
-    GuitarSpec whatErinLikes = new GuitarSpec();
-  
-    //Set the attributes required for search
-    //uncomment the attributes needed and set values
-    
-     whatErinLikes.setBuilder(Builder.FENDER);
-   // whatErinLikes.setModel("Stratocastor");
-   // whatErinLikes.setType(Type.ELECTRIC);
-    //whatErinLikes.setBackWood(Woodtype.ALDER);
-    //whatErinLikes.setTopWood(Woodtype.ALDER);
-    
+    	GuitarSpec whatErinLikes = new GuitarSpec();
+        //Set the attributes required for search. Comment other attributes which are not needed
+        
+        whatErinLikes.setBuilder(Builder.FENDER);
+        //whatErinLikes.setModel("Stratocastor");
+        whatErinLikes.setType(Type.ELECTRIC);
+        //whatErinLikes.setBackWood(Woodtype.ALDER);
+        //whatErinLikes.setTopWood(Woodtype.ALDER);
+        
     List<Guitar> MatchedGuitars = new LinkedList<>();
-    MatchedGuitars= inventory.search(whatErinLikes);
+    MatchedGuitars= inventory.search(whatErinLikes); // passing GuitarSpec object
+    System.out.println("Searching with specifications:");
     if (!MatchedGuitars.isEmpty()) 
     {
       System.out.println("Erin, you might like these guitars:");
@@ -55,19 +68,20 @@ private static Inventory inventory = new Inventory();
     }
     }
     
-    /*
-     * Finds and returns guitars that matches given price
+    /**
+     * Finds and returns guitars that matches the given price
      */
     
   private static void Searchwithprice()
   {
   Guitar priceSpecification = new Guitar(); //Guitar object
-  priceSpecification.setPrice(3999.95);     //set price 
+  priceSpecification.setPrice(3999.95);     //set price for guitar
   List<Guitar> PriceMatchGuitars = new LinkedList<>();
-  PriceMatchGuitars=inventory.Searchwithprice(priceSpecification);
+  PriceMatchGuitars=inventory.Searchwithprice(priceSpecification); //Passing guitar object after setting price
+  System.out.println("Searching with Price:");
   if (!PriceMatchGuitars.isEmpty()) 
   {
-      System.out.println("Erin, you might like these guitars in required price range:");
+      System.out.println("Erin, you might like these guitars matching with specified price:");
       for (Iterator i = PriceMatchGuitars.iterator();i.hasNext();)
       {
     	  Guitar guitar= (Guitar)i.next();
@@ -86,8 +100,9 @@ private static Inventory inventory = new Inventory();
     }
   }
   
-  /*
+  /**
    * Initialize Inventory with list of guitars
+   * @params Inventory Inventory object
    */
 
   private static void initializeInventory(Inventory inventory) 
@@ -114,7 +129,7 @@ private static Inventory inventory = new Inventory();
     		Woodtype.INDIAN_ROSEWOOD, Woodtype.CEDAR);
     inventory.addGuitar("566-62", 8999.95, Builder.RYAN, "Cathedral", Type.ACOUSTIC,
                         Woodtype.COCOBOLO, Woodtype.CEDAR);
-    inventory.addGuitar("6 29584", 2100.95, Builder.PRS, "Dave Navarro Signature",
+    inventory.addGuitar("629584", 2100.95, Builder.PRS, "Dave Navarro Signature",
     		Type.ELECTRIC, Woodtype.MAHOGANY, Woodtype.MAPLE);
   }
 }

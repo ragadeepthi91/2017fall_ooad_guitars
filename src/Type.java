@@ -1,4 +1,10 @@
-
+/**
+Class		: Object-Oriented Design and Analysis
+Professor	: Orlando Montalvo
+Assignment	: HW 2
+Student 	: RagaDeepthi, Manaswitha & Radhika
+Purpose 	: Custom user defined data type - Type
+*/
 public enum Type
   {
 	  ELECTRIC,

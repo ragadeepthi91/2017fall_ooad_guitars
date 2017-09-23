@@ -1,12 +1,37 @@
+/**
+Class		: Object-Oriented Design and Analysis
+Professor	: Orlando Montalvo
+Assignment	: HW 2
+Student 	: RagaDeepthi, Manaswitha & Radhika
+Purpose 	: Implements the properties and functions of Guitar.
+*/
+
 public class Guitar {
 
   private String serialNumber;
   private double price;
   public GuitarSpec spec;
   
+  /**
+   * Default Constructor
+   */
+
+  
   public Guitar()
   {  
   }
+  
+  /**
+   * Constructor with the following arguments
+   * @param serialNumber
+   * @param price
+   * @param builder
+   * @param model
+   * @param type
+   * @param backWood
+   * @param topWood
+   */
+
 
   public Guitar(String serialNumber, double price, Builder builder, String model, 
 		  Type type, Woodtype backWood, Woodtype topWood) 
@@ -16,28 +41,45 @@ public class Guitar {
     spec = new GuitarSpec(builder, model,type, backWood, topWood);
     this.spec = spec;
   }
-  
- /* public Guitar(String serialNumber, double price, GuitarSpec spec) 
-  {
-    this.serialNumber = serialNumber;
-    this.price = price;
-    this.spec = spec;
-  }*/
+
+  /**
+   * @return String return Guitar serial number
+  */
   
   public String getSerialNumber() {
     return serialNumber;
   }
 
+  /**
+   * @param serialnumber Set Guitar Serial number
+  */
+  
   public void setSerialNumber(String serialnumber) {
 	    this.serialNumber = serialnumber;
 	  }
   
+  /**
+   * @return double returns Guitar price
+  */
+  
   public double getPrice() {
     return price;
   }
+  
+ /**
+  * 
+  * @param newPrice Set Guitar price
+  */
+  
   public void setPrice(double newPrice) {
     this.price = newPrice;
   }
+  
+  /**
+   * 
+   * @return GuitarSpec returns GuitarSpec object of a guitar
+   */
+  
  public GuitarSpec getSpec()
  {
 	 return spec;

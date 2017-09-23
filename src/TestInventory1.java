@@ -1,3 +1,11 @@
+/**
+Class		: Object-Oriented Design and Analysis
+Professor	: Orlando Montalvo
+Assignment	: HW 2
+Student 	: RagaDeepthi, Manaswitha & Radhika
+Purpose 	: JUnit test to test add, get and search methods
+*/
+
 import static org.junit.Assert.*;
 
 import java.util.Iterator;
@@ -14,7 +22,7 @@ public class TestInventory1 {
 
 	Inventory inventory = new Inventory();
 	
-	/*
+	/**
 	 * Test AddGuitar() method
 	 */
 	@Test
@@ -24,14 +32,14 @@ public class TestInventory1 {
 		inventory.addGuitar("332211", 4999.95f, Builder.COLLINGS, "CJ", Type.ACOUSTIC,
                 Woodtype.INDIAN_ROSEWOOD, Woodtype.SITKA);
 		 Guitar guitar1 = new Guitar();
-		guitar1 = inventory.getGuitar("332211"); // Get guitar with given serial number
-		String model = guitar1.getSpec().getModel(); //Get serial number of guitar fetched
+		guitar1 = inventory.getGuitar("332211"); // guitar with given serial number
+		String model = guitar1.getSpec().getModel(); //serial number of guitar fetched
 		assertEquals("CJ", model); // validates the equality of expected and actual value
 		
 		inventory.addGuitar("442211", 2999.95f, Builder.FENDER, "CJ", Type.ACOUSTIC,
                 Woodtype.INDIAN_ROSEWOOD, Woodtype.ALDER);
 		
-		System.out.println("Testing add method:");
+		System.out.println("Test case 1: Add method");
 		for (Iterator i = inventory.guitars.iterator(); i.hasNext(); ) 
 		{
 		      Guitar guitar2 = (Guitar)i.next();
@@ -41,7 +49,7 @@ public class TestInventory1 {
 		
 	}
 	
-	/*
+	/**
 	 * Tests GetGuitar() method
 	 */
 	
@@ -55,16 +63,15 @@ public class TestInventory1 {
 		//we need to check if the guitar fetched from getGuitar() matches required guitar
 		Guitar requiredGuitar = new Guitar("332211", 4999.95f, Builder.COLLINGS, "CJ", Type.ACOUSTIC,
                 Woodtype.INDIAN_ROSEWOOD, Woodtype.SITKA);
-		 //System.out.println("price is" +requiredGuitar.getPrice());
 		//testing the equality of expected and actual values
 		assertEquals(requiredGuitar.getSerialNumber(), guitar3.getSerialNumber());
-		System.out.println("Testing get method:");
+		System.out.println("Test Case 2: Get method");
 		System.out.println("Serial number of the required guitar is " +requiredGuitar.getSerialNumber());
 		System.out.println("Serial number of the actual guitar is " +guitar3.getSerialNumber());
-		//assertTrue.guitarEquals
+		
 	}
   
-	/*
+	/**
 	 * Tests searchGuitar() method by setting only builder value
 	 */
 	@Test
@@ -78,10 +85,9 @@ public class TestInventory1 {
                 Woodtype.INDIAN_ROSEWOOD, Woodtype.CEDAR);
 		GuitarSpec whatErinLikes = new GuitarSpec();
 	    whatErinLikes.setBuilder(Builder.GIBSON);
-	    whatErinLikes.setModel("");
 	    List<Guitar> MatchedGuitars = new LinkedList<>();    
 	    MatchedGuitars= inventory.search(whatErinLikes);
-	    System.out.println("Testing search method:");
+	    System.out.println("Test case 3: Search method with builder value");
 	    if (!MatchedGuitars.isEmpty()) 
 	    {
 	      System.out.println("Size of the guitars list is " +MatchedGuitars.size());
@@ -89,10 +95,9 @@ public class TestInventory1 {
 	    }
 	}
 	
-	/*
+	/**
 	 * Tests searchGuitar() method by setting only builder value
 	 */
-	
 	@Test
 	public void testSearchGuitar2()
 	{	
@@ -102,20 +107,18 @@ public class TestInventory1 {
 		
 		GuitarSpec whatErinLikes = new GuitarSpec();
 	    whatErinLikes.setBuilder(Builder.FENDER);
-	    whatErinLikes.setModel("");
 	    List<Guitar> MatchedGuitars = new LinkedList<>();    
 	    MatchedGuitars= inventory.search(whatErinLikes);
-	    System.out.println("Testing second search method:");
+	    System.out.println("Test case 4: Search method with builder value");
 	    if (!MatchedGuitars.isEmpty()) 
 	    {
 	      System.out.println("Size of the guitars list is " +MatchedGuitars.size());
 	      assertEquals(1,MatchedGuitars.size());
 	    }
 	}
-	/*
-	 * Tests searchGuitar() method by setting only Type value
+	/**
+	 * Tests searchGuitar() method by setting only type value
 	 */
-	
 	
 	@Test
 	public void testSearchGuitar3()
@@ -128,10 +131,9 @@ public class TestInventory1 {
 		
 		GuitarSpec whatErinLikes = new GuitarSpec();
 	    whatErinLikes.setType(Type.ELECTRIC);
-	    //whatErinLikes.setModel("");
 	    List<Guitar> MatchedGuitars = new LinkedList<>();    
 	    MatchedGuitars= inventory.search(whatErinLikes);
-	    System.out.println("Testing Third search method:");
+	    System.out.println("Test case 5: Search method with only type value");
 	    if (!MatchedGuitars.isEmpty()) 
 	    {
 	      System.out.println("Size of the guitars list is " +MatchedGuitars.size());
@@ -139,10 +141,9 @@ public class TestInventory1 {
 	    }
 	}
 	
-	/*
-	 * Tests searchGuitar() method by giving specifications
+	/**
+	 * Tests searchGuitar() method by setting builder, type, model, backwood and topwood values
 	 */
-	
 	
 	@Test
 	public void testSearchGuitar4()
@@ -161,7 +162,7 @@ public class TestInventory1 {
 	    whatErinLikes.setBuilder(Builder.FENDER);
 	    List<Guitar> MatchedGuitars = new LinkedList<>();    
 	    MatchedGuitars= inventory.search(whatErinLikes);
-	    System.out.println("Testing Fourth search method:");
+	    System.out.println("Test case 6: Search method");
 	    if (!MatchedGuitars.isEmpty()) 
 	    {
 	      System.out.println("Size of the guitars list is " +MatchedGuitars.size());
