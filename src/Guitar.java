@@ -1,43 +1,88 @@
+/**
+Class		: Object-Oriented Design and Analysis
+Professor	: Orlando Montalvo
+Assignment	: HW 2
+Student 	: RagaDeepthi, Manaswitha & Radhika
+Purpose 	: Implements the properties and functions of Guitar.
+*/
+
 public class Guitar {
 
-  private String serialNumber, builder, model, type, backWood, topWood;
+  private String serialNumber;
   private double price;
+  public GuitarSpec spec;
+  
+  /**
+   * Default Constructor
+   */
 
-  public Guitar(String serialNumber, double price,
-                String builder, String model, String type,
-                String backWood, String topWood) {
+  
+  public Guitar()
+  {  
+  }
+  
+  /**
+   * Constructor with the following arguments
+   * @param serialNumber
+   * @param price
+   * @param builder
+   * @param model
+   * @param type
+   * @param backWood
+   * @param topWood
+   */
+
+
+  public Guitar(String serialNumber, double price, Builder builder, String model, 
+		  Type type, Woodtype backWood, Woodtype topWood) 
+  {
     this.serialNumber = serialNumber;
     this.price = price;
-    this.builder = builder;
-    this.model = model;
-    this.type = type;
-    this.backWood = backWood;
-    this.topWood = topWood;
+    spec = new GuitarSpec(builder, model,type, backWood, topWood);
+    this.spec = spec;
   }
 
+  /**
+   * @return String return Guitar serial number
+  */
+  
   public String getSerialNumber() {
     return serialNumber;
   }
 
+  /**
+   * @param serialnumber Set Guitar Serial number
+  */
+  
+  public void setSerialNumber(String serialnumber) {
+	    this.serialNumber = serialnumber;
+	  }
+  
+  /**
+   * @return double returns Guitar price
+  */
+  
   public double getPrice() {
     return price;
   }
-  public void setPrice(float newPrice) {
+  
+ /**
+  * 
+  * @param newPrice Set Guitar price
+  */
+  
+  public void setPrice(double newPrice) {
     this.price = newPrice;
   }
-  public String getBuilder() {
-    return builder;
-  }
-  public String getModel() {
-    return model;
-  }
-  public String getType() {
-    return type;
-  }
-  public String getBackWood() {
-    return backWood;
-  }
-  public String getTopWood() {
-    return topWood;
-  }
+  
+  /**
+   * 
+   * @return GuitarSpec returns GuitarSpec object of a guitar
+   */
+  
+ public GuitarSpec getSpec()
+ {
+	 return spec;
+ }
 }
+
