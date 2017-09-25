@@ -27,6 +27,12 @@ public class TestInventory {
 	}
 	Inventory inventory = new Inventory();
 	
+	/**
+	 * Returns double value of float variable
+	 * @param value price value in float
+	 * @return double returns double value of price
+	 */
+	
 	public double doubleValue(float value) {
 	    return (double)value;
 	}
