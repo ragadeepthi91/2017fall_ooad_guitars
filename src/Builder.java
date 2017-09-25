@@ -5,6 +5,12 @@ Assignment	: HW 2
 Student 	: RagaDeepthi, Manaswitha & Radhika
 Purpose 	: Custom user defined data type - Builder
 */
+
+/**
+ * 
+ * Builder enum is created to define the listed builders of Guitar as user defined data types to avoid typing mistakes
+ *
+ */
 public enum Builder
 {
 	FENDER, MARTIN, GIBSON, COLLINGS, OLSON, RYAN, PRS;

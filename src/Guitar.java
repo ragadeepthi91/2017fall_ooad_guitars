@@ -6,6 +6,11 @@ Student 	: RagaDeepthi, Manaswitha & Radhika
 Purpose 	: Implements the properties and functions of Guitar.
 */
 
+/**
+ * 
+ * Holds guitar properties and methods to fetch or set values.
+ */
+
 public class Guitar {
 
   private String serialNumber;
@@ -23,13 +28,14 @@ public class Guitar {
   
   /**
    * Constructor with the following arguments
-   * @param serialNumber
-   * @param price
-   * @param builder
-   * @param model
-   * @param type
-   * @param backWood
-   * @param topWood
+   * 
+   * @param serialNumber Guitar Serial number
+   * @param price Guitar price
+   * @param builder Guitar Builder
+   * @param model Guitar Model
+   * @param type Guitar Type
+   * @param backWood Guitar Backwood
+   * @param topWood Guitar Topwood
    */
 
 

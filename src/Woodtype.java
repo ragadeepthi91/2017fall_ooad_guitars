@@ -5,6 +5,13 @@ Assignment	: HW 2
 Student 	: RagaDeepthi, Manaswitha & Radhika
 Purpose 	: Custom user defined data type - Woodtype
 */
+
+
+/**
+ * 
+ * Woodtype enum is created to define the listed Woodtypes of Guitar as user defined data types to avoid typing mistakes
+ *
+ */
 public enum Woodtype 
 {
 

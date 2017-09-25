@@ -10,6 +10,11 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * prints guitars that matches with user specifications like model, type or price range. 
+ * 
+*/
+
 
 public class FindGuitarTester 
 {
@@ -17,7 +22,7 @@ private static Inventory inventory = new Inventory();
 
 /**
  * Main method to call other classes and access methods to add, get and search guitars that matches given specifications.
- * @param args Unused
+ * 
  */
 
   public static void main(String[] args) 
@@ -26,7 +31,7 @@ private static Inventory inventory = new Inventory();
     initializeInventory(inventory);
     
     SearchWithSpec();        // Search with required specifications.
-    Searchwithprice();       // Search with price.
+    Searchwithpricerange();       // Search with price.
   }
     
     
@@ -69,36 +74,34 @@ private static Inventory inventory = new Inventory();
     }
     
     /**
-     * Finds and returns guitars that matches the given price
+     * Finds and returns guitars that are in given price range
      */
     
-  private static void Searchwithprice()
-  {
-  Guitar priceSpecification = new Guitar(); //Guitar object
-  priceSpecification.setPrice(3999.95);     //set price for guitar
-  List<Guitar> PriceMatchGuitars = new LinkedList<>();
-  PriceMatchGuitars=inventory.Searchwithprice(priceSpecification); //Passing guitar object after setting price
-  System.out.println("Searching with Price:");
-  if (!PriceMatchGuitars.isEmpty()) 
-  {
-      System.out.println("Erin, you might like these guitars matching with specified price:");
-      for (Iterator i = PriceMatchGuitars.iterator();i.hasNext();)
-      {
-    	  Guitar guitar= (Guitar)i.next();
-    	  GuitarSpec spec = guitar.getSpec();
-    	  System.out.println("We have a " +
-        spec.getBuilder() + " " + spec.getModel() +  " " +
-        spec.getType() + " guitar:\n   " +
-        spec.getBackWood() + " back and sides,\n   " +
-        spec.getTopWood() + " top.\nYou can have it for only $" +
-        guitar.getPrice() + "!");
+    private static void Searchwithpricerange()
+    {
+    List<Guitar> PriceRangeGuitars = new LinkedList<>();
+    PriceRangeGuitars=inventory.searchwithpricerange(3000, 6000);
+    if (!PriceRangeGuitars.isEmpty()) 
+    {
+        System.out.println("Erin, you might like these guitars in required price range:");
+        for (Iterator i = PriceRangeGuitars.iterator();i.hasNext();)
+        {
+      	  Guitar guitar= (Guitar)i.next();
+      	  GuitarSpec spec = guitar.getSpec();
+      	  System.out.println("We have a " +
+          spec.getBuilder() + " " + spec.getModel() +  " " +
+          spec.getType() + " guitar:\n   " +
+          spec.getBackWood() + " back and sides,\n   " +
+          spec.getTopWood() + " top.\nYou can have it for only $" +
+          guitar.getPrice() + "!");
+        }
+      } 
+    else 
+    {
+        System.out.println("Sorry, Erin, we have nothing for you.");
       }
-    } 
-  else 
-  {
-      System.out.println("Sorry, Erin, we have nothing for you.");
     }
-  }
+    
   
   /**
    * Initialize Inventory with list of guitars

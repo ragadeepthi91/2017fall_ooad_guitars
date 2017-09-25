@@ -7,6 +7,12 @@ Purpose 	: Holds Guitar characteristics for searching and match method.
 */
 
 import java.util.Iterator;
+
+/**
+ * 
+ * Holds few guitar characteristics that are entered by user for searching
+ *
+ */
 public class GuitarSpec
 {
 private String model;
@@ -15,12 +21,13 @@ private Type type;
 private Woodtype backWood, topWood;
 
 /**
+ * Class constructor with below attributes
  * 
- * @param builder Guitar's Builder
- * @param model Guitar's Model
- * @param type Guitar's Type
- * @param backWood Guitar's BackWood
- * @param topWood Guitar's TopWood
+ * @param builder Guitar Builder
+ * @param model Guitar Model
+ * @param type Guitar Type
+ * @param backWood Guitar BackWood
+ * @param topWood Guitar TopWood
  */
 
 public GuitarSpec(Builder builder, String model, Type type,
@@ -32,6 +39,10 @@ public GuitarSpec(Builder builder, String model, Type type,
 	    this.backWood = backWood;
 	    this.topWood = topWood;
 }
+
+/**
+ * Default constructor
+ */
 
  public GuitarSpec() 
 {
