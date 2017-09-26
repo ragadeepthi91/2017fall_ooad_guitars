@@ -3,34 +3,42 @@
 * Class: Object-Oriented Design and Analysis
 * Professor: Orlando Montalvo
 * Assignment: HW 1
-* Student: Ragadeepthi
 * 
-* Implements methods to add and search guitars matching with given specifications
-* 
+* Date: 09-26-2017
 */
 
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
+/**
+ * @author Deepthi's
+ * @version 1.3
+ * 
+ * Implements methods to add and search guitars matching the given specifications 
+ */ 
+
+
 public class Inventory {
-  private List<Guitar> guitars;
   
-//constructor to intitialise guitars
-  public Inventory() {
+/**
+ * Constructor to initialize guitars
+ */
+  public Inventory() 
+  {
     guitars = new LinkedList();
   }
   
   /**
    * Adds a new guitar to the inventory
    * 
-   * @param serialNumber 
-   * @param price 
-   * @param builder
-   * @param model
-   * @param type
-   * @param backWood
-   * @param topWood
+   * @param serialNumber Guitar Serial number
+   * @param price Guitar Price
+   * @param builder Guitar Builder
+   * @param model Guitar model
+   * @param type Guitar Type
+   * @param backWood Guitar Backwood
+   * @param topWood Guitar Topwood
    */
 
   public void addGuitar(String serialNumber, double price,
@@ -68,8 +76,8 @@ public class Inventory {
   public Guitar search(Guitar searchGuitar) {
     for (Iterator i = guitars.iterator(); i.hasNext(); ) {
       Guitar guitar = (Guitar)i.next();
-      // Ignore serial number since that's unique
-      // Ignore price since that's unique
+      // Ignore price and serial number since they are unique
+      
       String builder = searchGuitar.getBuilder();
       if ((builder != null) && (!builder.equals("")) &&
           (!builder.equals(guitar.getBuilder())))
@@ -94,4 +102,6 @@ public class Inventory {
     }
     return null;
   }
+  
+  private List<Guitar> guitars;
 }

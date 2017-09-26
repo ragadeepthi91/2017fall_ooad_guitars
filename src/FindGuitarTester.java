@@ -3,13 +3,19 @@
 * Class: Object-Oriented Design and Analysis
 * Professor: Orlando Montalvo
 * Assignment: HW 1
-* Student: Ragadeepthi
 * 
-* Main class to call Guitar and Inventory classes to take required Guitar 
-* specifications and print details of matching guitar
-* 
+* Date: 09-26-2017
 */
 
+/**
+ * 
+ * @author Deepthi's
+ * @version 1.3
+ * 
+ * Main class to call Guitar and Inventory classes to take required Guitar 
+ * specifications and print details of matching guitar
+ *
+ */
 
 public class FindGuitarTester {
 

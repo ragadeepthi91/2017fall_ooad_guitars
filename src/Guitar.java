@@ -3,31 +3,54 @@
 * Class: Object-Oriented Design and Analysis
 * Professor: Orlando Montalvo
 * Assignment: HW 1
-* Student: Ragadeepthi
 * 
-* Holds all the guitar characteristics
-* 
+* Date: 09-26-2017
 */
 
-public class Guitar {
+/**
+ * 
+ * @author Deepthi's
+ * @version 1.3
+ * 
+ * Holds all Guitar Characteristics
+ *
+ */
 
-  private String serialNumber, builder, model, type, backWood, topWood;
-  private double price;
+public class Guitar {
 
   /**
    * This constructor is used to hold the details of guitars
    * 
-   * @param serialNumber
-   * @param price
-   * @param builder
-   * @param model
-   * @param type
-   * @param backWood
-   * @param topWood
+   * @param serialNumber Guitar Serial number
+   * @param price Guitar Price
+   * @param builder Guitar Builder
+   * @param model Guitar model
+   * @param type Guitar Type
+   * @param backWood Guitar Backwood
+   * @param topWood Guitar Topwood
+   * 
+   * @precondition serialNumber is not empty
+   * @precondition price > 0
+   * @precondition builder != null
+   * @precondition model is not empty
+   * @precondition type != null
+   * @precondition topWood != null
+   * @precondition backWood != null
+   * 
    */
   public Guitar(String serialNumber, double price,
                 String builder, String model, String type,
-                String backWood, String topWood) {
+                String backWood, String topWood) 
+  {
+	  
+	assert serialNumber != null && !serialNumber.isEmpty();
+    assert price > 0.0;
+    assert builder != null;
+    assert model != null && !model.isEmpty();
+	assert type != null;
+	assert backWood != null;
+	assert topWood != null;
+		
     this.serialNumber = serialNumber;
     this.price = price;
     this.builder = builder;
@@ -39,7 +62,7 @@ public class Guitar {
   
   /**
    * 
-   * @return String Guitar's serialNumber
+   * Gets Guitar SerialNumber
    */
   public String getSerialNumber() {
     return serialNumber;
@@ -47,7 +70,7 @@ public class Guitar {
   
   /**
    * 
-   * @return double Guitar's price
+   * Gets Guitar Price
    */
   public double getPrice() {
     return price;
@@ -55,7 +78,7 @@ public class Guitar {
   
   /**
    * 
-   * @param newPrice Guitar's price
+   * @param newPrice Guitar price
    */
   public void setPrice(float newPrice) {
     this.price = newPrice;
@@ -63,7 +86,7 @@ public class Guitar {
   
   /**
    * 
-   * @return String Guitar's builder
+   * Gets Guitar Builder
    */
   public String getBuilder() {
     return builder;
@@ -71,7 +94,7 @@ public class Guitar {
   
   /**
    * 
-   * @return String Guitar's model
+   * Gets Guitar Model
    */
   public String getModel() {
     return model;
@@ -79,7 +102,7 @@ public class Guitar {
   
   /**
    * 
-   * @return String Guitar's type
+   * Gets Guitar Type
    */
   public String getType() {
     return type;
@@ -87,7 +110,7 @@ public class Guitar {
   
   /**
    * 
-   * @return String Guitar's backwood
+   * Gets Guitar Backwood
    */
   public String getBackWood() {
     return backWood;
@@ -95,9 +118,12 @@ public class Guitar {
   
   /**
    * 
-   * @return String Guitar's topwood
+   * Gets Guitar Topwood
    */
   public String getTopWood() {
     return topWood;
   }
+  
+  private String serialNumber, builder, model, type, backWood, topWood;
+  private double price;
 }
